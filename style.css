@@ -1,0 +1,247 @@
+/* Background image and font */
+html {
+	background-image: url(/images/backgroud.jpeg);
+    font-family: 'Segoe UI';
+}
+
+/* Header */
+#header {
+    font-family:'Segoe UI' ;
+    color: rgb(253, 254, 255);
+    font-size: 25px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 15px;
+    margin-top:-15px;
+    margin-left:15px;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #f1f4f7b1, 0 0 10px #499ebdb1, 0 0 20px #499ebdb1, 
+                   0 0 30px #66c0e1b1, 0 0 40px #66c0e1b1, 0 0 50px #66c0e1b1;
+    }
+    to {
+      text-shadow: 0 0 5px #bddbeeb8, 0 0 10px #5ea7d477, 0 0 20px #5ea7d477, 
+                   0 0 30px #5ea7d477, 0 0 40px #5ea7d477, 0 0 50px #5ea7d477;
+    }
+  }
+#logoImage {
+    height: 100px;
+}
+
+/* Menu */
+#menu {
+    margin: auto;
+    display: flex;
+    text-align: center;
+    position: absolute;
+    top: 5px;
+    left: 600px;
+}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .menu li {
+    display: inline-block;
+  }
+  .menu li a {
+    display: block;
+    padding: 50px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+  }
+
+/* Welcome screen */
+#welcomeScreen {
+    padding-top: 6%;
+    align-items: center;
+}
+.welcomeBtn{
+    margin: auto;
+    margin-top: 3%;
+    display: block;
+    background-color: transparent;
+    color:rgb(169, 201, 216);
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    font-weight: 600;
+    border: 3px solid #73d8eca4;
+    border-radius: 5px;
+    padding: 12px 28px;
+    width: 150px;
+}
+.welcomeBtn:hover{
+    color:rgb(0, 0, 0);
+    background-color: #5db9cc;
+    box-shadow: 8px 12px 16px 0 rgba(69, 152, 177, 0.477);
+    cursor: pointer;
+}
+
+/* Register Screen */
+#registerScreen {
+    padding-top: 3%;
+    display: none;
+    color: aliceblue;
+    margin: auto;
+    margin-top: 10px;
+    padding-bottom: 200px;
+    width: 460px;
+    flex-direction: column;
+    align-items: stretch;
+}
+#registerScreen h1 {
+    text-align: center;
+    color: #b0d2e6;
+    -webkit-animation: glow 3s ease-in-out infinite alternate;
+    -moz-animation: glow 3s ease-in-out infinite alternate;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+input[type=text], input[type=password], input[type=date], input[type=email] {
+	width: 100%;
+	padding: 6px;
+	border: 2px solid #81a0c4b1;
+	border-radius: 6px;
+	box-sizing: border-box;
+	margin-top: 6px;
+	margin-bottom: 4px;
+    background-color: #ffffffd1;
+}
+input[type=text]:focus, input[type=password]:focus, input[type=date]:focus, input[type=email]:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 12px #9ecaed;
+}
+#submit {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+	background-color: #4e8aad;
+	color: white;
+	padding: 12px 10px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+#submit:hover {
+	background-color: #72a7c2;
+}
+label.error{
+    color: red;
+    font-family: serif;
+}
+
+/* Login Screen */
+#loginScreen {
+    padding-top: 3%;
+    display: none;
+    color: rgb(255, 255, 255);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    width: 320px;
+    flex-direction: column;
+    align-items: stretch;
+}
+#loginScreen h1 {
+    text-align: center;
+    color: #b0d2e6;
+    -webkit-animation: glow 3s ease-in-out infinite alternate;
+    -moz-animation: glow 3s ease-in-out infinite alternate;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+#submitL {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+	background-color: #4e8aad;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+#submitL:hover {
+	background-color: #72a7c2;
+}
+
+/* Settings Screen */
+#settingsScreen {
+    display: none;
+    color: white;
+    text-align: center;
+    /* TO DO */
+    /* TO DO */
+    /* TO DO */
+    /* TO DO */
+    /* TO DO */
+}
+table {
+	background-color: rgba(240, 248, 255, 0.317);
+	border: 2px solid rgba(180, 200, 232, 0.425);
+	width: 800px;
+}
+td {
+    font-family: "Impact";
+    font-size: 22px;
+	text-align: center;
+	padding: 7px;
+}
+
+/* About modal dialog */
+#aboutModalDialog{
+    display: none;
+    flex-direction: column;
+    margin: auto;
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 50%;
+	background-image: url(/images/backgroud1.jpeg);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 30px 20px;
+    font-weight: bold;
+}
+.modal-content {
+    align-items: center;
+    text-align: center;
+    padding: 10px 10px 10px;
+}
+.closeAboutModalDialog {
+    color: #8b5ea9;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+}
+.closeAboutModalDialog:hover,
+.closeAboutModalDialog:focus {
+    text-decoration: none;
+    color: rgb(116, 47, 124);
+    cursor: pointer;
+}
+
+/* Footer */
+#footer {
+    font-size: 15px;
+    color: rgb(60, 124, 151);
+    font-weight: 600;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin: 0;
+}

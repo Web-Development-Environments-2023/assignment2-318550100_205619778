@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Invaders</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- load scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script type="text/javascript" src="js/db.js"></script>
+    <script type="text/javascript" src="js/welcome.js"></script>
+    <script type="text/javascript" src="js/about.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
+</head>
+<body>
+
+    <!-- header -->
+    <div id="header" class="header">
+            <img id=logoImage src="/images/logo.png">
+            <h1>Chicken Invaders</h1>
+    </div>
+
+    <!-- menu -->
+    <div id="menu" class="menu">
+        <ul>
+            <li><a href="#" id="home">Home</a></li>
+            <li><a href="#" id="login">Login</a></li>
+            <li><a href="#" id="register">Register</a></li>
+            <li><a href="#" id="about">About</a></li>
+          </ul>
+    </div>
+
+    <!-- content -->
+    <div id="content">
+        <!-- Welcome Screen -->
+        <div id="welcomeScreen">
+            <button id="loginBtn" class="welcomeBtn">Login</button>
+            <button id="registerBtn" class="welcomeBtn">Register</button>
+        </div>
+        <!-- Register Screen -->
+        <div id="registerScreen">
+            <h1>Register</h1>
+            <form id="registerForm" method="post">
+                <div class="registerFormRow">
+                    <label>Username:</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="registerFormRow">
+                    <label>Password:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div class="registerFormRow">
+                    <label>Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword">
+                </div>
+                <div class="registerFormRow">
+                    <label>First Name:</label>
+                    <input type="text" id="firstName" name="firstName">
+                </div>
+                <div class="registerFormRow">
+                    <label>Last Name:</label>
+                    <input type="text" id="lastName" name="lastName">
+                </div>
+                <div class="registerFormRow">
+                    <label>Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="registerFormRow">
+                    <label>Birthday:</label>
+                    <input type="date" id="birthday" name="birthday">
+                </div>
+                <div class="registerFormRow">
+                    <button type="submit" id="submit">Register</button>
+                </div>
+            </form>
+        </div>
+        <!-- Login Screen -->
+        <div id="loginScreen">
+            <form id="loginForm" method="post">
+                <h1>Login</h1>
+                <div class="loginFormRow">
+                    <input type="text" id="usernameL" name="usernameL" placeholder="Username" required>
+                </div>
+                <div class="loginFormRow">
+                    <input type="password" id="passwordL" name="passwordL" placeholder="Password" required>
+                </div>
+                <div class="loginFormRow">
+                    <button type=submit id="submitL">Login</button>
+                </div>
+            </form>
+        </div>
+        <!-- Settings Screen -->
+        <div id="settingsScreen">
+            <h1>Game Settings</h1>
+            <form id="settingsForm" method="post">
+                <table>
+                    <tr>
+                        <td><label>Move up</label></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><label>Move down</label></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><label>Move right</label></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><label>Move laft</label></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><label>Fire</label></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <!-- TO DO-->
+                <!-- TO DO-->
+                <!-- TO DO-->
+                <!-- TO DO-->
+                <!-- TO DO-->
+                <button type="submit" id="submitS">START GAME</button>
+            </form>
+        </div>
+        <!-- Game Screen -->
+        <div id="gameScreen">
+                <!-- TO DO-->
+                <!-- TO DO-->
+                <!-- TO DO-->
+                <!-- TO DO-->
+                <!-- TO DO-->
+        </div>
+    </div>
+
+    <!-- The about Modal -->
+    <div id="aboutModalDialog" class="modal">
+    <!-- About Modal content -->
+    <div class="modal-content">
+        <span class="closeAboutModalDialog">&times;</span>
+        <p>Some text in the Modal..</p>
+    </div>
+  </div>
+
+    <!-- footer -->
+    <div id="footer">
+        <p>Kalanit Segal 318550100 & Maor Biton 205619778</p>
+    </div>
+
+</body>
+</html>
