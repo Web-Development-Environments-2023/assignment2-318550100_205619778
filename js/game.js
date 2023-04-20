@@ -15,4 +15,5 @@ function showGameScreen() {
     $("#settingsScreen").hide();
     $("#gameScreen").show();
     
+
 }

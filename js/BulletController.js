@@ -43,7 +43,6 @@ export default class BulletController {
           this.bullets.splice(bulletThatHitSpriteIndex, 1);
           return true;
         }
-    
         return false;
       }
 }
