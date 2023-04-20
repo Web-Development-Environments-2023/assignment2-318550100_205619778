@@ -20,4 +20,5 @@ function showSettingsScreen() {
     $("#registerScreen").hide();
     $("#welcomeScreen").hide();
     $("#settingsScreen").show();
+    $("#gameScreen").hide();
 }

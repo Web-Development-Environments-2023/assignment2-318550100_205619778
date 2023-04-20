@@ -1,5 +1,5 @@
 /////let loggedUsername = null
-let dbUsers = [{uname: "p",pass: "testuser",fname: "test",lname: "test",email: "test@test.com",birthday: "01/01/2000"}];
+let dbUsers = [{uname: "a",pass: "a",fname: "test",lname: "test",email: "test@test.com",birthday: "01/01/2000"}];
 
 //add new user to dbUsers
 function addUserToDB(username, password, firstName, lastName, email, birthday){

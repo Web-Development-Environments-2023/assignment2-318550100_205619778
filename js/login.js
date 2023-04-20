@@ -16,6 +16,7 @@ function showloginScreen() {
     $("#settingsScreen").hide();
     resetLoginForm();
     $("#loginScreen").show();
+    $("#gameScreen").hide();
 }
 
 //reset Login form
