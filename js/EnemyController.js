@@ -19,9 +19,13 @@ export default class EnemyController{
     MoveUpTimerDefult = 10;
     MoveDownTimer = this.MoveDownTimerDefult;
     MoveUpTimer = this.MoveUpTimerDefult;
+    fireBulletTimerDefult = 100;
+    fireBulletTimer = this.fireBulletTimerDefult;
 
-    constructor(canvas){
+    constructor(canvas,enemyBulletController,playerBulletController){
         this.canvas =canvas;
+        this.enemyBulletController=enemyBulletController;
+        this.playerBulletController=playerBulletController;
         this.createEnemies();
     }
 
@@ -29,8 +33,35 @@ export default class EnemyController{
         this.decrementMoveDownTimer();
         this.decrementMoveUpTimer();
         this.updateVelocityAndDirection();
+        this.collisionDetection();
         this.drawEnemies(ctx);
         this.resetMoveDownTimer()
+        this.fireBullet();
+    }
+
+    collisionDetection() {
+        this.enemyRows.forEach((enemyRow) => {
+          enemyRow.forEach((enemy, enemyIndex) => {
+            if (this.playerBulletController.collideWith(enemy)) {
+            //   this.enemyDeathSound.currentTime = 0;
+            //   this.enemyDeathSound.play();
+              enemyRow.splice(enemyIndex, 1);
+            }
+          });
+        });
+    
+        this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length > 0);
+      }
+
+    fireBullet(){
+        this.fireBulletTimer--;
+        if(this.fireBulletTimer <= 0){
+            this.fireBulletTimer = this.fireBulletTimerDefult;
+            const allEnemies = this.enemyRows.flat();
+            const enemyIndex = Math.floor(Math.random()*allEnemies.length);
+            const enemy = allEnemies[enemyIndex]
+            this.enemyBulletController.shoot(enemy.x,enemy.y,5,6,-3);
+        }
     }
     resetMoveDownTimer(){
         if(this.MoveDownTimer <= 0){

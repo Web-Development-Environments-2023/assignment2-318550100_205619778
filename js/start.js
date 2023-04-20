@@ -1,5 +1,6 @@
 import EnemyController from "./EnemyController.js";
 import Player from "./Player.js";
+import BulletController from "./BulletController.js";
 
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext("2d");
@@ -11,14 +12,18 @@ const background = new Image();
 background.src = "images/backgroud2.jpeg";
 // background.style.color = 'transparent'
 
-const player = new Player(canvas,3);
-const enemyController = new EnemyController(canvas);
+const playerBulletController = new BulletController(canvas,10,"images/laser2.png" ,true);
+const enemyBulletController = new BulletController(canvas,10, "images/egg.png" ,false);
+
+const enemyController = new EnemyController(canvas,enemyBulletController,playerBulletController);
+const player = new Player(canvas,5,playerBulletController);
 
 function game() {
     ctx.drawImage(background,0,0,canvas.width,canvas.heigth);    
-    // enemyController.draw(ctx);
+    enemyController.draw(ctx);
     player.draw(ctx);
-    console.log(player.y)
+    playerBulletController.draw(ctx);
+    enemyBulletController.draw(ctx);
 
 }
 
