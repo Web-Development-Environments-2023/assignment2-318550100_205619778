@@ -4,9 +4,10 @@ export default class Enemy {
         this.y = y;
         this.width = 44;
         this.height = 32;
+        this.type = imageNumber;
 
         this.image = new Image();
-        this.image.src = `images/chicken${imageNumber}.png`
+        this.image.src = `images/chicken${this.type}.png`
     }
 
     draw(ctx){

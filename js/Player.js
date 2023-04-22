@@ -23,7 +23,18 @@ export default class Player {
 
         document.addEventListener("keydown",this.keydown)
         document.addEventListener("keyup",this.keyup)
+        this.lives = 3;
+        this.playerDeathSound = new Audio("sounds/playerHit.wav")
+        this.playerDeathSound.volume = 0.5
 
+    }
+    setPosition(x,y){
+        this.x =x;
+        this.y=y;
+    }
+
+    reduceLives(){
+        this.lives--;
     }
 
     draw(ctx) {

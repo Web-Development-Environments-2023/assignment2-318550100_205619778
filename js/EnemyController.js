@@ -22,6 +22,10 @@ export default class EnemyController{
     fireBulletTimerDefult = 100;
     fireBulletTimer = this.fireBulletTimerDefult;
 
+    /*Score */
+    scoreDefult = 0;
+    score = this.scoreDefult;
+
     constructor(canvas,enemyBulletController,playerBulletController){
         this.canvas =canvas;
         this.enemyBulletController=enemyBulletController;
@@ -48,6 +52,10 @@ export default class EnemyController{
               this.enemyDeathSound.currentTime = 0;
               this.enemyDeathSound.play();
               enemyRow.splice(enemyIndex, 1);
+              if(enemy.type==1){this.score+=20}
+              else if(enemy.type == 2){this.score+=15}
+              else if(enemy.type == 3){this.score+=10}
+              else if(enemy.type == 4){this.score+=5}
             }
           });
         });
