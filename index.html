@@ -18,7 +18,34 @@
     <script type="module" src="js/login.js"></script>
     <script type="module" src="js/settings.js"></script>
     <script type="module" src="js/game.js"></script>
-    <script type = "module" src="js/start.js"></script>
+
+    <!-- this script is for game interval and background sound -->
+
+    <script>
+        var intervalId;
+        var game_audio = new Audio();
+        var background_audio = new Audio();
+        background_audio.src = "sounds/theme.mp3"
+        game_audio.src = "sounds/backgroundSound.mp3"
+        game_audio.volume = 0.3;
+        background_audio.volume = 0.4;
+        background_audio.loop = true;
+        game_audio.loop = true;
+        background_audio.play();
+
+        function startInterval(func) {
+        intervalId = setInterval(func,1000/60);
+        game_audio.currentTime=0
+        game_audio.play();
+        background_audio.pause();
+        }
+
+        function stopInterval() {
+        clearInterval(intervalId);
+        game_audio.pause();
+        background_audio.play();
+        }
+    </script>
 </head>
 <body>
 
@@ -123,11 +150,6 @@
                         <td></td>
                     </tr>
                 </table>
-                <!-- TO DO-->
-                <!-- TO DO-->
-                <!-- TO DO-->
-                <!-- TO DO-->
-                <!-- TO DO-->
                 <button type="submit" id="submitS">Start Game</button>
             </form>
         </div>
@@ -135,23 +157,6 @@
         <!-- Game Screen -->
         <div id="gameScreen">
             <canvas id="gameCanvas" width="800" height="400"></canvas>
-            <table id="gameTable">
-				<tr>
-                    <ul>
-                        <li>
-                            <label for="lblScore">Score:</label>
-                            <br><br>
-                            <input id="lblScore" type="text" class="gameLbl" />
-                            <br><br>
-                            <label for="lblTime">Time:</label>
-                            <br><br>
-                            <input id="lblTime" type="text" class="gameLbl" />
-                            <label for="lblLives">LIVES:</label>
-                            <br><br>
-                            <input id="lblLives" type="text" class="gameLbl" />
-                        
-                    </ul>
-                </tr></table>
         </div>
     
 

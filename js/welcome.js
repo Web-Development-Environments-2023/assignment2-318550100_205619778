@@ -2,6 +2,8 @@ $(document).ready(function(){
     //click on 'Home' in the menu
     $("#home").click(function(){
         showWelcomeScreen();
+        stopInterval();
+
     });
 });
 
@@ -12,4 +14,6 @@ function showWelcomeScreen() {
     $("#settingsScreen").hide();
     $("#welcomeScreen").show();
     $("#gameScreen").hide();
+    
 }
+

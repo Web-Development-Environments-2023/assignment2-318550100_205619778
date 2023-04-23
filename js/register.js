@@ -2,6 +2,7 @@ $(document).ready(function(){
     //click on 'Register' in the menu
     $("#register").click(function(){
         showRegisterScreen();
+        stopInterval();
     });
     //click on 'Register' button in home screen
     $("#registerBtn").click(function(){
@@ -118,6 +119,7 @@ function showRegisterScreen() {
     $("#settingsScreen").hide();
     resetRegisterForm();
     $("#registerScreen").show();
+    $("#gameScreen").hide();
 }
 
 //register the user with form inputs

@@ -2,6 +2,7 @@ $(document).ready(function(){
     //click on 'Login' in the menu
     $("#login").click(function(){
         showloginScreen();
+        stopInterval();
     });
     //click on 'Login' button in home screen
     $("#loginBtn").click(function(){

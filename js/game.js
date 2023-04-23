@@ -1,8 +1,17 @@
+import EnemyController from "./EnemyController.js";
+import Player from "./Player.js";
+import BulletController from "./BulletController.js";
+
 $(document).ready(function(){
     //click on start game button in setting screen
     $("#settingsForm").submit(function(event) {
         event.preventDefault();
         showGameScreen();
+        initGame();
+        startInterval(game);
+        
+
+        console.log(intervalId);
 
         });
 });
@@ -15,5 +24,126 @@ function showGameScreen() {
     $("#settingsScreen").hide();
     $("#gameScreen").show();
     
+    
+}
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext("2d");
+
+canvas.width = 900;
+canvas.heigth = 500;
+const background = new Image();
+background.src = "images/backgroud2.jpeg";
+
+var playerBulletController;
+
+var enemyBulletController;
+var enemyController;
+
+var player;
+
+var isGameOver;
+var didWin;
+
+//Timer
+var timeLimit
+var startTime 
+var TimeElapsed
+
+
+//save Player Postion at start of the game
+var xPlayerPosAtStart
+var yPlayerPosAtStart
+
+function initGame(){
+    playerBulletController = new BulletController(canvas,10,"images/laser2.png" ,true);
+    enemyBulletController = new BulletController(canvas,10, "images/egg.png" ,false);
+    enemyController = new EnemyController(canvas,enemyBulletController,playerBulletController);
+    player = new Player(canvas,5,playerBulletController)
+    isGameOver = false;
+    didWin = false;
+    timeLimit = 120;
+    startTime = new Date()
+    xPlayerPosAtStart = player.x;
+    yPlayerPosAtStart = player.y;
+
+
+
+}
+
+
+function game() {
+    checkGameOver();
+    checkTimeLimit();
+    ctx.drawImage(background,0,0,canvas.width,canvas.heigth);
+    displayGameOver();
+    if(!isGameOver){
+        enemyController.draw(ctx);
+        player.draw(ctx);
+        playerBulletController.draw(ctx);
+        enemyBulletController.draw(ctx);
+        draw(ctx);
+        console.log(player.x,player.y)
+
+    }  
+
+}
+
+function displayGameOver(){
+    if(isGameOver){
+        let text = didWin ? "You Win" : "Game Over";
+        let textOffset = didWin ? 3.5 : 5;
+
+        ctx.fillStyle = "white";
+        ctx.font = "70px Arial";
+        ctx.fillText(text,canvas.width/textOffset,canvas.heigth/2);
+    }
+
+}
+
+
+function checkGameOver(){
+    if(isGameOver){
+      return;  
+    }
+    if(enemyBulletController.collideWith(player)){
+        player.reduceLives();
+        player.playerDeathSound.currentTime=0;
+        player.playerDeathSound.play();
+        player.setPosition(xPlayerPosAtStart,yPlayerPosAtStart)
+        if(player.lives==0){
+            isGameOver = true;
+            lblLives.value = 0;
+        }
+    }
+    if(enemyController.enemyRows.length === 0){
+        didWin = true;
+        isGameOver =true;
+    }
+}
+
+function checkTimeLimit(){
+	var currentTime = new Date();
+	TimeElapsed = (currentTime - startTime) / 1000;
+	if (TimeElapsed >= timeLimit){
+        isGameOver = true
+        lblTime.value = 0.000
+        
+
+	}
+
+}
+
+function draw(ctx){
+    var lives = new Image();
+    lives.src = "/images/lives.png"
+    for(var i=0;i<player.lives;i++){
+        ctx.drawImage(lives,10+i*25,375,20,20);
+    }
+
+    ctx.font = "20px serif"
+    ctx.fillStyle  = "white"
+    ctx.fillText("time left: "+(timeLimit - TimeElapsed).toPrecision(3),200,390,100,1)
+    ctx.fillText("Score: "+enemyController.score,360,390,100,1)
 
 }

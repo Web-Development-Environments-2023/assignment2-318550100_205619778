@@ -4,6 +4,7 @@ $(document).ready(function(){
     //click on 'About'
     $('#about').click(function(){
         $("#aboutModalDialog").show();
+
     });
     //click on 'X' button in the modal dialog
     $(".closeAboutModalDialog").click(function(){
