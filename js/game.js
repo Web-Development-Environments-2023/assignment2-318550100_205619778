@@ -14,10 +14,7 @@ $(document).ready(function(){
         startInterval(game);
 
         });
-    // $("newGamebtn").click(function(){
-    //     stopInterval();
     
-    // });
     
 });
 
