@@ -5,16 +5,25 @@ import BulletController from "./BulletController.js";
 $(document).ready(function(){
     //click on start game button in setting screen
     $("#settingsForm").submit(function(event) {
+        var Keyshoot = document.getElementById("shootKeyPre").value;
+        var timeSelected = document.getElementById("timeDuration").value;
         event.preventDefault();
         showGameScreen();
-        initGame();
+        console.log(starship)
+        initGame(Keyshoot,timeSelected,starship);
         startInterval(game);
-        
-
-        console.log(intervalId);
 
         });
+    // $("newGamebtn").click(function(){
+    //     stopInterval();
+    
+    // });
+    
 });
+
+
+
+
 
 //show game screen
 function showGameScreen() {
@@ -23,6 +32,7 @@ function showGameScreen() {
     $("#welcomeScreen").hide();
     $("#settingsScreen").hide();
     $("#gameScreen").show();
+    $("#settingsForm")[0].reset();
     
     
 }
@@ -41,7 +51,6 @@ var enemyBulletController;
 var enemyController;
 
 var player;
-
 var isGameOver;
 var didWin;
 
@@ -55,14 +64,14 @@ var TimeElapsed
 var xPlayerPosAtStart
 var yPlayerPosAtStart
 
-function initGame(){
+function initGame(Keyshoot,timeSelected,starship){
     playerBulletController = new BulletController(canvas,10,"images/laser2.png" ,true);
     enemyBulletController = new BulletController(canvas,10, "images/egg.png" ,false);
     enemyController = new EnemyController(canvas,enemyBulletController,playerBulletController);
-    player = new Player(canvas,5,playerBulletController)
+    player = new Player(canvas,5,playerBulletController,Keyshoot,starship)
     isGameOver = false;
     didWin = false;
-    timeLimit = 120;
+    timeLimit = timeSelected;
     startTime = new Date()
     xPlayerPosAtStart = player.x;
     yPlayerPosAtStart = player.y;
@@ -113,7 +122,6 @@ function checkGameOver(){
         player.setPosition(xPlayerPosAtStart,yPlayerPosAtStart)
         if(player.lives==0){
             isGameOver = true;
-            lblLives.value = 0;
         }
     }
     if(enemyController.enemyRows.length === 0){
@@ -127,7 +135,6 @@ function checkTimeLimit(){
 	TimeElapsed = (currentTime - startTime) / 1000;
 	if (TimeElapsed >= timeLimit){
         isGameOver = true
-        lblTime.value = 0.000
         
 
 	}

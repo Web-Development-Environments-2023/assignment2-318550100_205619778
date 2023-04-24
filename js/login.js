@@ -3,6 +3,9 @@ $(document).ready(function(){
     $("#login").click(function(){
         showloginScreen();
         stopInterval();
+        if(document.getElementById('loginC').getElementsByTagName("a")[0].innerText == "Logout"){
+            document.getElementById('loginC').getElementsByTagName("a")[0].innerText = "Login"
+        }
     });
     //click on 'Login' button in home screen
     $("#loginBtn").click(function(){

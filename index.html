@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicken Invaders</title>
+
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="shortcut icon" href="#"/>
     <!-- load scripts -->
@@ -12,15 +13,15 @@
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script type="text/javascript" src="js/db.js"></script>
-    <script type="module" src="js/welcome.js"></script>
-    <script type="module" src="js/about.js"></script>
-    <script type="module" src="js/register.js"></script>
-    <script type="module" src="js/login.js"></script>
-    <script type="module" src="js/settings.js"></script>
+    <script type="text/javascript" src="js/welcome.js"></script>
+    <script type="text/javascript" src="js/about.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
     <script type="module" src="js/game.js"></script>
 
     <!-- this script is for game interval and background sound -->
-
+    
     <script>
         var intervalId;
         var game_audio = new Audio();
@@ -48,7 +49,6 @@
     </script>
 </head>
 <body>
-
     <!-- header -->
     <div id="header" class="header">
             <img id=logoImage src="/images/logo.png">
@@ -59,7 +59,7 @@
     <div id="menu" class="menu">
         <ul>
             <li><a href="#" id="home">Home</a></li>
-            <li><a href="#" id="login">Login</a></li>
+            <li><span id="loginC"><a href="#" id="login">Login</a></span></li>
             <li><a href="#" id="register">Register</a></li>
             <li><a href="#" id="about">About</a></li>
           </ul>
@@ -128,35 +128,37 @@
         <div id="settingsScreen">
             <h1>Game Settings</h1>
             <form id="settingsForm" method="post">
-                <table>
-                    <tr>
-                        <td><label>Move up</label></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><label>Move down</label></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><label>Move right</label></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><label>Move laft</label></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><label>Enter Fire Button</label></td>
-                        <td></td>
-                    </tr>
-                </table>
-                <button type="submit" id="submitS">Start Game</button>
+                <div class="registerFormRow">
+                    <label>Enter game duration:</label>
+                    <input type="number" id="timeDuration" name="timeDuration" min="20" required>
+                </div>
+                <div class="registerFormRow">
+                    <label>Please Choose Shoot Key:</label>
+                    <input id="shootKeyPre"  type="text" onkeydown="shootKey(event)" value="" maxlength="0" required>
+                </div>
+                <div class="registerFormRow">
+                    <br>
+                    <br>
+                    <label>Please chose spaceship:</label>
+                    <br><br>
+                    <img src="images/spaceship1.png" alt="1" role="button" width="60" height="50" onclick="choosePlayer(this)">
+                    <img src="images/spaceship2.png" alt="2" role="button" width="60" height="50" onclick="choosePlayer(this)">
+                    <img src="images/spaceship3.png" alt="3" role="button" width="60" height="50" onclick="choosePlayer(this)">
+                    <img src="images/spaceship4.png" alt="4" role="button" width="60" height="50" onclick="choosePlayer(this)">
+                    <img src="images/spaceship5.png" alt="5" role="button" width="60" height="50" onclick="choosePlayer(this)">
+                    <img src="images/spaceship6.png" alt="6" role="button" width="60" height="50" onclick="choosePlayer(this)">
+                    <!-- <input id="playerImageID" type="image" src="images/spaceship5.png" onclick="choosePlayer(this)"/> -->
+                    <br><br>
+                <div class="registerFormRow">
+                    <button type="submitS" id="submitS">Start Game</button>
+                </div>
             </form>
         </div>
     </div>
         <!-- Game Screen -->
         <div id="gameScreen">
             <canvas id="gameCanvas" width="800" height="400"></canvas>
+            <button id="newGamebtn">New Game</button>
         </div>
     
 

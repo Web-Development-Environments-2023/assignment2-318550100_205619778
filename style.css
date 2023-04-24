@@ -180,15 +180,24 @@ label.error{
 
 /* Settings Screen */
 #settingsScreen {
+    padding-top: 3%;
     display: none;
-    color: white;
-    text-align: center;
-    /* TO DO */
-    /* TO DO */
-    /* TO DO */
-    /* TO DO */
-    /* TO DO */
+    color: aliceblue;
+    margin: auto;
+    margin-top: 10px;
+    padding-bottom: 200px;
+    width: 460px;
+    flex-direction: column;
+    align-items: stretch;
 }
+#settingsScreen h1 {
+    text-align: center;
+    color: #b0d2e6;
+    -webkit-animation: glow 3s ease-in-out infinite alternate;
+    -moz-animation: glow 3s ease-in-out infinite alternate;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
 table {
 	background-color: rgba(240, 248, 255, 0.317);
 	border: 2px solid rgba(180, 200, 232, 0.425);
@@ -201,6 +210,7 @@ td {
 	text-align: center;
 	padding: 7px;
 }
+
 #submitS {
     display: block;
     margin: auto;

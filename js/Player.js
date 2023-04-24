@@ -1,5 +1,5 @@
-export default class Player {
 
+export default class Player {
     rightPressed = false;
     leftPressed =false;
 
@@ -8,18 +8,19 @@ export default class Player {
     downPressed=false;
     shootPressed=false;
 
-    constructor(canvas,velocity,bulletController){
+    constructor(canvas,velocity,bulletController,keyShoot="Space",starship=6){
+        this.Keyshoot = keyShoot;
         this.canvas=canvas;
         this.velocity=velocity;
         this.bullet = bulletController;
-
+        this.starship = starship;
         this.x = Math.floor(Math.random()*(canvas.width-70));
         this.y = this.canvas.height-70;
 
         this.width=50;
         this.height=48;
         this.image = new Image();
-        this.image.src = "images/spaceship6.png";
+        this.image.src = `images/spaceship${this.starship}.png`;
 
         document.addEventListener("keydown",this.keydown)
         document.addEventListener("keyup",this.keyup)
@@ -63,8 +64,8 @@ export default class Player {
         }
 
         //down
-        if(this.y > this.canvas.height-this.height){
-            this.y =this.canvas.height-this.height;
+        if(this.y > this.canvas.height-this.height-22){
+            this.y =this.canvas.height-this.height-22;
         }
 
     }
@@ -97,7 +98,7 @@ export default class Player {
         if(event.code == "ArrowDown"){
             this.downPressed = true;
         }
-        if(event.code == "Space"){
+        if(event.code == this.Keyshoot){
             this.shootPressed =true;
         }
     };
@@ -114,7 +115,7 @@ export default class Player {
         if(event.code == "ArrowDown"){
             this.downPressed = false;
         }
-        if(event.code == "Space"){
+        if(event.code == this.Keyshoot){
             this.shootPressed =false;
         }
     };
