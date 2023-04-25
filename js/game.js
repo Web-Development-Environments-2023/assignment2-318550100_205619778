@@ -12,14 +12,8 @@ $(document).ready(function(){
         console.log(starship)
         initGame(Keyshoot,timeSelected,starship);
         startInterval(game);
-
         });
-    
-    
 });
-
-
-
 
 
 //show game screen
@@ -30,8 +24,6 @@ function showGameScreen() {
     $("#settingsScreen").hide();
     $("#gameScreen").show();
     $("#settingsForm")[0].reset();
-    
-    
 }
 
 const canvas = document.getElementById('gameCanvas');
@@ -102,7 +94,7 @@ function displayGameOver(){
 
         ctx.fillStyle = "white";
         ctx.font = "70px Arial";
-        ctx.fillText(text,canvas.width/textOffset,canvas.heigth/2);
+        ctx.fillText(text,canvas.width/textOffset,canvas.heigth/2.5);
     }
 
 }

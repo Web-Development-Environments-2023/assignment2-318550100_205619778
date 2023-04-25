@@ -110,7 +110,7 @@ html {
     -moz-animation: glow 3s ease-in-out infinite alternate;
     animation: glow 3s ease-in-out infinite alternate;
 }
-input[type=text], input[type=password], input[type=date], input[type=email] {
+input[type=text], input[type=password], input[type=date], input[type=email], input[type=number] {
 	width: 100%;
 	padding: 6px;
 	border: 2px solid #81a0c4b1;
@@ -120,7 +120,7 @@ input[type=text], input[type=password], input[type=date], input[type=email] {
 	margin-bottom: 4px;
     background-color: #ffffffd1;
 }
-input[type=text]:focus, input[type=password]:focus, input[type=date]:focus, input[type=email]:focus { 
+input[type=text]:focus, input[type=password]:focus, input[type=date]:focus, input[type=email]:focus, input[type=number]:focus { 
     outline: none;
     border-color: #9ecaed;
     box-shadow: 0 0 12px #9ecaed;
@@ -185,10 +185,16 @@ label.error{
     color: aliceblue;
     margin: auto;
     margin-top: 10px;
-    padding-bottom: 200px;
-    width: 460px;
+    margin-bottom: 100px;
+    padding-left: 4%;
+    padding-right: 2%;
+    padding-bottom: 5%;
+    width: 40%;
+    max-width: 600px;
     flex-direction: column;
     align-items: stretch;
+    background-color: #91d1f928;
+    border-radius: 20px;
 }
 #settingsScreen h1 {
     text-align: center;
@@ -197,24 +203,31 @@ label.error{
     -moz-animation: glow 3s ease-in-out infinite alternate;
     animation: glow 3s ease-in-out infinite alternate;
 }
-
-table {
-	background-color: rgba(240, 248, 255, 0.317);
-	border: 2px solid rgba(180, 200, 232, 0.425);
-	width: 800px;
-
+#settingsScreen label {
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:4%;
+    font-size: 23px;
+    font-family: Impact;
+    font-weight: 200;
+    color: #a4cef8;
+    -webkit-text-stroke: 0.85px rgb(15, 45, 97);
 }
-td {
-    font-family: "Impact";
-    font-size: 22px;
-	text-align: center;
-	padding: 7px;
+#settingsForm input[type=text], input[type=number]{
+    background-color: #d4e7f166;
+    width: 30%;
+    color: #e5e8eb;
 }
-
+#settingsForm img{
+    width: 18%;
+    height: 100px;
+    object-fit: contain;
+}
 #submitS {
     display: block;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 4%;
 	background-color: #4e8aad;
 	color: white;
 	padding: 12px 20px;
@@ -249,6 +262,7 @@ td {
     margin-left: 0%;
 }
 #newGamebtn {
+    z-index: 2;
     display: block;
     margin: auto;
     margin-top: 5px;
@@ -334,6 +348,7 @@ td {
 
 /* Footer */
 #footer {
+    z-index: -2;
     font-size: 15px;
     color: rgb(60, 124, 151);
     font-weight: 600;
