@@ -3,6 +3,7 @@ $(document).ready(function(){
     $("#register").click(function(){
         showRegisterScreen();
         stopInterval();
+        document.getElementById("gameOverDialog").style.display="none";
     });
     //click on 'Register' button in home screen
     $("#registerBtn").click(function(){

@@ -3,6 +3,7 @@ $(document).ready(function(){
     $("#home").click(function(){
         showWelcomeScreen();
         stopInterval();
+        document.getElementById("gameOverDialog").style.display="none";
 
     });
 });

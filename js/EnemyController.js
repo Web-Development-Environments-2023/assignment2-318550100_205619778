@@ -15,12 +15,13 @@ export default class EnemyController{
     yVelocity = 0;
     defultXVelocity =2;
     defultYVelocity =2;
-    MoveDownTimerDefult = 10;
-    MoveUpTimerDefult = 10;
+    MoveDownTimerDefult = 8;
+    MoveUpTimerDefult = 8;
     MoveDownTimer = this.MoveDownTimerDefult;
     MoveUpTimer = this.MoveUpTimerDefult;
-    fireBulletTimerDefult = 100;
+    fireBulletTimerDefult = 60;
     fireBulletTimer = this.fireBulletTimerDefult;
+    fireBulletVelocity = -4;
 
     /*Score */
     scoreDefult = 0;
@@ -33,6 +34,15 @@ export default class EnemyController{
         this.enemyDeathSound = new Audio('sounds/chicken_hit.wav')
         this.enemyDeathSound.volume = 0.5
         this.createEnemies();
+    }
+
+    incraseSpeed(){
+        this.defultXVelocity+=1;
+        this.defultYVelocity+=1;
+        this.MoveDownTimerDefult-=2;
+        this.MoveUpTimerDefult-=2;
+        this.fireBulletVelocity-=0.5;
+        this.fireBulletTimerDefult-=5;
     }
 
     draw(ctx){
@@ -70,7 +80,7 @@ export default class EnemyController{
             const allEnemies = this.enemyRows.flat();
             const enemyIndex = Math.floor(Math.random()*allEnemies.length);
             const enemy = allEnemies[enemyIndex]
-            this.enemyBulletController.shoot(enemy.x,enemy.y,5,6,-4);
+            this.enemyBulletController.shoot(enemy.x,enemy.y,5,6,this.fireBulletVelocity);
         }
     }
     resetMoveDownTimer(){

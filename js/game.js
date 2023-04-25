@@ -9,13 +9,21 @@ $(document).ready(function(){
         var timeSelected = document.getElementById("timeDuration").value;
         event.preventDefault();
         showGameScreen();
-        console.log(starship)
         initGame(Keyshoot,timeSelected,starship);
         startInterval(game);
         });
 });
 
+document.getElementById("newGamebtn").addEventListener("click",newGame)
 
+function newGame(){
+    stopInterval();
+    document.getElementById("gameOverDialog").style.display="none";
+    var Keyshoot = document.getElementById("shootKeyPre").value;
+    var timeSelected = document.getElementById("timeDuration").value;
+    initGame(Keyshoot,timeSelected,starship);
+    startInterval(game);
+}
 //show game screen
 function showGameScreen() {
     $("#loginScreen").hide();
@@ -23,14 +31,16 @@ function showGameScreen() {
     $("#welcomeScreen").hide();
     $("#settingsScreen").hide();
     $("#gameScreen").show();
-    $("#settingsForm")[0].reset();
+    // $("#settingsForm")[0].reset();
 }
+
+
 
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext("2d");
 
-canvas.width = 900;
-canvas.heigth = 500;
+canvas.width = 1000;
+canvas.heigth = 600;
 const background = new Image();
 background.src = "images/backgroud2.jpeg";
 
@@ -47,6 +57,8 @@ var didWin;
 var timeLimit
 var startTime 
 var TimeElapsed
+var incrase
+var timeToIncrase 
 
 
 //save Player Postion at start of the game
@@ -64,15 +76,22 @@ function initGame(Keyshoot,timeSelected,starship){
     startTime = new Date()
     xPlayerPosAtStart = player.x;
     yPlayerPosAtStart = player.y;
-
-
-
+    incrase=0
+    timeToIncrase=5
 }
 
-
+function incraseSpeedInGame(){
+    if(TimeElapsed >= timeToIncrase && incrase<4){
+        incrase+=1
+        timeToIncrase+=5
+        enemyController.incraseSpeed()  
+        }
+}
 function game() {
     checkGameOver();
     checkTimeLimit();
+    incraseSpeedInGame();
+    console.log(incraseSpeedInGame())
     ctx.drawImage(background,0,0,canvas.width,canvas.heigth);
     displayGameOver();
     if(!isGameOver){
@@ -81,14 +100,13 @@ function game() {
         playerBulletController.draw(ctx);
         enemyBulletController.draw(ctx);
         draw(ctx);
-        console.log(player.x,player.y)
-
     }  
 
 }
 
 function displayGameOver(){
     if(isGameOver){
+        document.getElementById("gameOverDialog").style.display="block";
         let text = didWin ? "You Win" : "Game Over";
         let textOffset = didWin ? 3.5 : 5;
 
@@ -124,11 +142,9 @@ function checkTimeLimit(){
 	TimeElapsed = (currentTime - startTime) / 1000;
 	if (TimeElapsed >= timeLimit){
         isGameOver = true
-        
-
 	}
+    }
 
-}
 
 function draw(ctx){
     var lives = new Image();

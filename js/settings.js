@@ -7,8 +7,6 @@ $(document).ready(function(){
             // updateloggedinUsername(username, password);
             event.preventDefault()
             showSettingsScreen();
-            document.getElementById('loginC').getElementsByTagName("a")[0].innerText = "Logout"
-
         }
         else {
             alert("Invalid user name or password") ? "" : event.preventDefault();   
@@ -25,9 +23,11 @@ function showSettingsScreen() {
     $("#loginScreen").hide();
     $("#registerScreen").hide();
     $("#welcomeScreen").hide();
+    $("#settingsForm")[0].reset();
     $("#settingsScreen").show();
     $("#gameScreen").hide();
 }
+
 
 function shootKey(event){
     let Keyshoot = document.getElementById("shootKeyPre");
@@ -56,7 +56,5 @@ function choosePlayer(el){
         starship=curr.alt
     }
 
-    
-    // document.getElementById("playerNum").style.borderColor = "blue";
-    // console.log(numOFImage.value)
+
 }
