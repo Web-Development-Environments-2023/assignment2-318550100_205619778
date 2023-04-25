@@ -244,7 +244,9 @@ label.error{
     display: none;
     color: white;
     text-align: center;
-
+    width:  100%;
+    height: 100%;
+    margin: 0;
 }
 #gameCanvas{
     border: 1px solid white;
@@ -253,7 +255,6 @@ label.error{
     display: flex;
     margin-left: 10%;
     margin-right: 50%;
-
 }
 #infolist{
     list-style:none;
