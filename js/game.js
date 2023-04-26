@@ -10,6 +10,7 @@ $(document).ready(function(){
         event.preventDefault();
         showGameScreen();
         initGame(Keyshoot,timeSelected,starship);
+        scoreTable.splice(0,scoreTable.length)
         startInterval(game);
         });
 });
@@ -19,6 +20,8 @@ document.getElementById("newGamebtn").addEventListener("click",newGame)
 function newGame(){
     stopInterval();
     document.getElementById("gameOverDialog").style.display="none";
+    console.log(scoreTable)
+    canvas.focus();
     var Keyshoot = document.getElementById("shootKeyPre").value;
     var timeSelected = document.getElementById("timeDuration").value;
     initGame(Keyshoot,timeSelected,starship);
@@ -34,7 +37,7 @@ function showGameScreen() {
     // $("#settingsForm")[0].reset();
 }
 
-
+const scoreTable = [];
 
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext("2d");
@@ -91,7 +94,6 @@ function game() {
     checkGameOver();
     checkTimeLimit();
     incraseSpeedInGame();
-    console.log(incraseSpeedInGame())
     ctx.drawImage(background,0,0,canvas.width,canvas.heigth);
     displayGameOver();
     if(!isGameOver){
@@ -106,6 +108,8 @@ function game() {
 
 function displayGameOver(){
     if(isGameOver){
+        stopInterval()
+        scoreTable.push(enemyController.score)
         document.getElementById("gameOverDialog").style.display="block";
         let text = didWin ? "You Win" : "Game Over";
         let textOffset = didWin ? 3.5 : 5;
@@ -120,6 +124,7 @@ function displayGameOver(){
 
 function checkGameOver(){
     if(isGameOver){
+
       return;  
     }
     if(enemyBulletController.collideWith(player)){
@@ -129,11 +134,13 @@ function checkGameOver(){
         player.setPosition(xPlayerPosAtStart,yPlayerPosAtStart)
         if(player.lives==0){
             isGameOver = true;
+          
         }
     }
     if(enemyController.enemyRows.length === 0){
         didWin = true;
         isGameOver =true;
+        
     }
 }
 
@@ -142,6 +149,7 @@ function checkTimeLimit(){
 	TimeElapsed = (currentTime - startTime) / 1000;
 	if (TimeElapsed >= timeLimit){
         isGameOver = true
+        
 	}
     }
 
