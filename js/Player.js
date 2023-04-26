@@ -86,6 +86,7 @@ export default class Player {
     }
 
     keydown = event =>{
+        event.preventDefault();
         if(event.code == "ArrowRight"){
             this.rightPressed = true;
         }
@@ -103,6 +104,7 @@ export default class Player {
         }
     };
     keyup = event =>{
+        event.preventDefault();
         if(event.code == "ArrowRight"){
             this.rightPressed = false;
         }
