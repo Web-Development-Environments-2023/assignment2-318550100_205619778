@@ -17,6 +17,7 @@ $(document).ready(function(){
 
 document.getElementById("newGamebtn").addEventListener("click",newGame)
 
+//when click new game clear the interval and create new 
 function newGame(){
     stopInterval();
     document.getElementById("gameOverDialog").style.display="none";
@@ -62,6 +63,7 @@ var startTime
 var TimeElapsed
 var incrase
 var timeToIncrase 
+var massage
 
 
 //save Player Postion at start of the game
@@ -83,6 +85,7 @@ function initGame(Keyshoot,timeSelected,starship){
     timeToIncrase=5
 }
 
+//Incrase speed every 5 sec (4 times)
 function incraseSpeedInGame(){
     if(TimeElapsed >= timeToIncrase && incrase<4){
         incrase+=1
@@ -90,6 +93,8 @@ function incraseSpeedInGame(){
         enemyController.incraseSpeed()  
         }
 }
+
+//game running in interval 
 function game() {
     checkGameOver();
     checkTimeLimit();
@@ -106,22 +111,80 @@ function game() {
 
 }
 
+//Display game over
 function displayGameOver(){
     if(isGameOver){
         stopInterval()
+        clearDiv()
         scoreTable.push(enemyController.score)
+        var recordTable = document.getElementById("recordTable")
+        var span = document.createElement('span')
+        var text1 = document.createTextNode("Your Score: "+enemyController.score)
+        span.appendChild(text1)
+        var span2 = document.createElement('span')
+        var text2 = document.createTextNode(massage)
+        span2.setAttribute("id","span-mes")
+        span2.appendChild(text2)
+        recordTable.appendChild(span)
+        recordTable.appendChild(span2)
+        drawRecordTable(scoreTable)
         document.getElementById("gameOverDialog").style.display="block";
-        let text = didWin ? "You Win" : "Game Over";
-        let textOffset = didWin ? 3.5 : 5;
 
-        ctx.fillStyle = "white";
-        ctx.font = "70px Arial";
-        ctx.fillText(text,canvas.width/textOffset,canvas.heigth/2.5);
     }
 
 }
 
+//Clear Previues game score display
+function clearDiv()
+{
+    var div = document.getElementById("recordTable");
+    while(div.firstChild){
+        div.removeChild(div.firstChild);
+    }
+}
 
+//draw the game over dialog
+function drawRecordTable(recTable){
+    var sortRec = recTable.sort((a,b)=>b-a);
+    var recTable = document.getElementById('recordTable')
+    var table = document.createElement('TABLE');
+    console.log(table)
+    table.border = '0'
+
+    var tr = document.createElement('tr');
+    var td1 = document.createElement('td');
+    var td2 = document.createElement('td');
+    var text1 = document.createTextNode("Place");
+    var text2 = document.createTextNode("Points");
+    td1.appendChild(text1);
+    td2.appendChild(text2);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    table.appendChild(tr);
+    console.log(sortRec.length)
+    for (let i = 0; i < sortRec.length; i++)
+    {
+            var tr = document.createElement('tr');   
+        
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            console.log(i)
+            var text1 = document.createTextNode((i+1) + " - ");
+            var text2 = document.createTextNode(sortRec[i]);
+        
+            td1.appendChild(text1);
+            td2.appendChild(text2);
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+        
+            table.appendChild(tr);
+    }
+
+    recTable.appendChild(table);     
+}
+
+
+// function that check if the game over while interval is running and change the massage 
 function checkGameOver(){
     if(isGameOver){
 
@@ -133,27 +196,36 @@ function checkGameOver(){
         player.playerDeathSound.play();
         player.setPosition(xPlayerPosAtStart,yPlayerPosAtStart)
         if(player.lives==0){
+            massage = "You Lost!"
             isGameOver = true;
           
         }
     }
     if(enemyController.enemyRows.length === 0){
         didWin = true;
+        massage = "Champion!"
         isGameOver =true;
         
     }
 }
 
+//check the time limit and assert game over
 function checkTimeLimit(){
 	var currentTime = new Date();
 	TimeElapsed = (currentTime - startTime) / 1000;
 	if (TimeElapsed >= timeLimit){
+        if(enemyController.score < 100){
+            massage = "You can do better"
+        }
+        else{
+            massage = "Winner!"
+        }
         isGameOver = true
         
 	}
     }
 
-
+// draw the score and time while game is running
 function draw(ctx){
     var lives = new Image();
     lives.src = "/images/lives.png"

@@ -131,7 +131,7 @@
                 <br>
                 <div class="registerFormRow">
                     <label>Enter game duration:</label>
-                    <input type="number" id="timeDuration" name="timeDuration" min="20" required>
+                    <input type="number" id="timeDuration" name="timeDuration" min="120" required>
                 </div>
                 <br>
                 <div class="registerFormRow">
@@ -145,7 +145,7 @@
                     <img src="images/spaceship1.png" alt="1" role="button" width="60" height="50" onclick="choosePlayer(this)">
                     <img src="images/spaceship2.png" alt="2" role="button" width="60" height="50" onclick="choosePlayer(this)">
                     <img src="images/spaceship3.png" alt="3" role="button" width="60" height="50" onclick="choosePlayer(this)">
-                    <img src="images/spaceship4.png" alt="4" role="button" width="60" height="50" onclick="choosePlayer(this)">
+                    <img src="images/spaceship6.png" alt="6" role="button" width="60" height="50" onclick="choosePlayer(this)">
                     <img src="images/spaceship5.png" alt="5" role="button" width="60" height="50" onclick="choosePlayer(this)">
                     <!-- <img src="images/spaceship6.png" alt="6" role="button" width="60" height="50" onclick="choosePlayer(this)"> -->
                     <!-- <input id="playerImageID" type="image" src="images/spaceship5.png" onclick="choosePlayer(this)"/> -->
@@ -163,11 +163,9 @@
             <button id="newGamebtn">New Game</button>
         </div>
         <!-- Game Over Dialog -->
-        <div id = "gameOverDialog" class="modal" style="display: none;">
-            <h1>Game Over</h1>
-            <br>
-            <p>Game over, champion ..... </p>
-
+        <div id = "gameOverDialog" class="modal" style="display: none">
+            <h1 id="GameOver">Game Over</h1>
+            <div id = "recordTable"></div>
         </div>
 
     <!-- The about Modal -->
