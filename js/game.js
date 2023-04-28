@@ -23,7 +23,6 @@ document.getElementById("newGamebtn").addEventListener("click",newGame)
 function newGame(){
     stopInterval();
     document.getElementById("gameOverDialog").style.display="none";
-    console.log(scoreTable)
     canvas.focus();
     var Keyshoot = document.getElementById("shootKeyPre").value;
     var timeSelected = document.getElementById("timeDuration").value;
