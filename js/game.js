@@ -15,6 +15,8 @@ $(document).ready(function(){
         });
 });
 
+
+
 document.getElementById("newGamebtn").addEventListener("click",newGame)
 
 //when click new game clear the interval and create new 

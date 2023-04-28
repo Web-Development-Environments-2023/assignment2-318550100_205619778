@@ -136,9 +136,9 @@
                 <div class="registerFormRow">
                     <label>Chose spaceship:</label>
                     <br><br>
-                    <img src="images/spaceship1.png" alt="1" role="button" width="60" height="50" onclick="choosePlayer(this)">
-                    <img src="images/spaceship2.png" alt="2" role="button" width="60" height="50" onclick="choosePlayer(this)">
-                    <img src="images/spaceship3.png" alt="3" role="button" width="60" height="50" onclick="choosePlayer(this)">
+                    <img src="images/spaceship10.png" alt="10" role="button" width="60" height="50" onclick="choosePlayer(this)">
+                    <img src="images/spaceship7.png" alt="7" role="button" width="60" height="50" onclick="choosePlayer(this)">
+                    <img src="images/spaceship8.png" alt="8" role="button" width="60" height="50" onclick="choosePlayer(this)">
                     <img src="images/spaceship6.png" alt="6" role="button" width="60" height="50" onclick="choosePlayer(this)">
                     <img src="images/spaceship5.png" alt="5" role="button" width="60" height="50" onclick="choosePlayer(this)">
                     <!-- <img src="images/spaceship6.png" alt="6" role="button" width="60" height="50" onclick="choosePlayer(this)"> -->
@@ -153,7 +153,7 @@
     </div>
         <!-- Game Screen -->
         <div id="gameScreen">
-            <canvas id="gameCanvas" width="800" height="400"></canvas>
+            <canvas id="gameCanvas" width="800" height="400" tabindex="1"></canvas>
             <button id="newGamebtn">New Game</button>
         </div>
         <!-- Game Over Dialog -->
@@ -167,7 +167,21 @@
     <!-- About Modal content -->
     <div class="modal-content">
         <span class="closeAboutModalDialog">&times;</span>
-        <p>Some text in the Modal..</p>
+        <h1>About</h1>
+        <p>Authers: Kalanit Segal & Maor Biton</p>
+        <h3>How To Play:</h3>
+        <p>For moving the Spaceship use the Arrows keys</p>
+        <p>For shoot you can define your preferd key in the setting screen after you logged in, the shooting key by defult is Space key</p>
+        <p>You can also choose the Spaceship you want to play with</p>
+        <p>At the bottom of the screen, you can see the number of lives left, your score and the time left</p> 
+        <h2>You have to hurry before the chickens take over the world!</h2>
+        <br>
+        <h3>jQuery Plugin:</h3>
+        <p>About the jquer !! EDIT HERE !!</p>
+        <br>
+        <h3>Difficulties:</h3>
+        <p>The main difficulty was connecting the various elements into a working game.
+            In addition, it was difficult to set the interval of the game and control it on the different screens</p>
     </div>
   </div>
 
