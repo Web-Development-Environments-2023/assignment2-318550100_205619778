@@ -1,6 +1,6 @@
-import EnemyController from "./js/EnemyController.js";
-import Player from "./js/Player.js";
-import BulletController from "./js/BulletController.js";
+import EnemyController from "./EnemyController.js";
+import Player from "./Player.js";
+import BulletController from "./BulletController.js";
 
 $(document).ready(function(){
     //click on start game button in setting screen
