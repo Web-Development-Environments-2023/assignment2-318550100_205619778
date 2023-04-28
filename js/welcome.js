@@ -4,7 +4,6 @@ $(document).ready(function(){
         showWelcomeScreen();
         stopInterval();
         document.getElementById("gameOverDialog").style.display="none";
-
     });
 });
 
@@ -15,6 +14,4 @@ function showWelcomeScreen() {
     $("#settingsScreen").hide();
     $("#welcomeScreen").show();
     $("#gameScreen").hide();
-    
 }
-

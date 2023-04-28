@@ -20,16 +20,12 @@
     <script type="text/javascript" src="js/settings.js"></script>
     <script type="module" src="js/game.js"></script>
 
-    <!-- this script is for game interval and background sound -->
-    <script>
-        var intervalId;
-        var game_audio = new Audio();
-        var background_audio = new Audio();
-        background_audio.src = "sounds/theme.mp3"
+    <!-- this script is for game interval -->
+    <script type="text/javascript">
+        let intervalId;
+        let game_audio = new Audio();
         game_audio.src = "sounds/backgroundSound.mp3"
         game_audio.volume = 0.3;
-        background_audio.volume = 0.4;
-        background_audio.loop = true;
         game_audio.loop = true;
         background_audio.play();
 
@@ -37,13 +33,11 @@
         intervalId = setInterval(func,1000/60);
         game_audio.currentTime=0
         game_audio.play();
-        background_audio.pause();
         }
 
         function stopInterval() {
         clearInterval(intervalId);
         game_audio.pause();
-        background_audio.play();
         }
     </script>
 </head>
@@ -183,7 +177,7 @@
         <br>
         <br>
         <br>
-        <p>Kalanit Segal 318550100 & Maor Biton 205619778</p>
+        <p>Kalanit Segal - kalanits@post.bgu.ac.il & Maor Biton - maorbtn@post.bgu.ac.il</p>
     </div>
 
 </body>
