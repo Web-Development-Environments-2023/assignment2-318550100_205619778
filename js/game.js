@@ -1,6 +1,6 @@
-import EnemyController from "./EnemyController.js";
-import Player from "./Player.js";
-import BulletController from "./BulletController.js";
+import EnemyController from "EnemyController.js";
+import Player from "Player.js";
+import BulletController from "BulletController.js";
 
 $(document).ready(function(){
     //click on start game button in setting screen
@@ -230,7 +230,7 @@ function checkTimeLimit(){
 // draw the score and time while game is running
 function draw(ctx){
     var lives = new Image();
-    lives.src = "/images/lives.png"
+    lives.src = "images/lives.png"
     for(var i=0;i<player.lives;i++){
         ctx.drawImage(lives,10+i*25,375,20,20);
     }
