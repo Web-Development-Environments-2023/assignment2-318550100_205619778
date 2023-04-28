@@ -8,11 +8,13 @@
 * Name: Kalanit Segal
 
 ID: 318550100
+
 EMAIL: kalanits@post.bgu.ac.il
 
 * Name: Maor Biton
 
 ID: 205619778
+
 EMAIL: maorbtn@post.bgu.ac.il
 
 ## Website Link
