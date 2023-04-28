@@ -308,6 +308,19 @@ label.error{
         text-align: center;
     }  
 
+    .closegameOverDialog {
+        color: #8b5ea9;
+        float: right;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .closegameOverDialog:hover,
+    .closegameOverDialog:focus {
+        text-decoration: none;
+        color: rgb(116, 47, 124);
+        cursor: pointer;
+    }
+
     .newGameOver {
         align-items: center;
         text-align: center;

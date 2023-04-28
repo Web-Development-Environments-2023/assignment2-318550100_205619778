@@ -38,6 +38,10 @@
         clearInterval(intervalId);
         game_audio.pause();
         }
+
+        function hideGameOverDialog(){
+            document.getElementById("gameOverDialog").style.display="none"
+        }
     </script>
 </head>
 <body>
@@ -157,6 +161,7 @@
         </div>
         <!-- Game Over Dialog -->
         <div id = "gameOverDialog" class="modal" style="display: none">
+            <span class="closegameOverDialog" onclick="hideGameOverDialog()">&times;</span>
             <h1 id="GameOver">Game Over</h1>
             <div id = "recordTable"></div>
         </div>

@@ -19,6 +19,7 @@ $(document).ready(function(){
 
 document.getElementById("newGamebtn").addEventListener("click",newGame)
 
+
 //when click new game clear the interval and create new 
 function newGame(){
     stopInterval();
@@ -149,7 +150,6 @@ function drawRecordTable(recTable){
     var sortRec = recTable.sort((a,b)=>b-a);
     var recTable = document.getElementById('recordTable')
     var table = document.createElement('TABLE');
-    console.log(table)
     table.border = '0'
 
     var tr = document.createElement('tr');
@@ -162,14 +162,12 @@ function drawRecordTable(recTable){
     tr.appendChild(td1);
     tr.appendChild(td2);
     table.appendChild(tr);
-    console.log(sortRec.length)
     for (let i = 0; i < sortRec.length; i++)
     {
             var tr = document.createElement('tr');   
         
             var td1 = document.createElement('td');
             var td2 = document.createElement('td');
-            console.log(i)
             var text1 = document.createTextNode((i+1) + " - ");
             var text2 = document.createTextNode(sortRec[i]);
         
