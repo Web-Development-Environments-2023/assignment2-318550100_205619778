@@ -385,15 +385,46 @@ label.error{
     height: 50%;
 	background-image: url(images/backgroud1.jpeg);
     color: #ffffff;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px 30px 20px;
     font-weight: bold;
     overflow-y: auto;
+    color:rgb(255, 255, 255)
+}
+#aboutModalDialog h1 {
+    font-size: 40px;
+    margin: 0px 0px 8px 0px;
+    font-family: "fantasy";
+    font-weight: 800;
+    color: #644172;
+    -webkit-text-stroke: 0.7px rgb(72, 44, 94);
+}
+#aboutModalDialog h2 {
+    font-family: "fantasy";
+    margin-bottom: 0px;
+}
+#aboutModalDialog h3 {
+    font-size: 18px;
+    font-family: "fantasy";
+    font-weight: 200;
+    color: #9f94cc;
+}
+#aboutModalDialog p{
+    text-align: left;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+#aboutModalDialog li{
+    font-weight: 500;
+    text-align: left;
+    color: #ffffff;
 }
 .modal-content {
     align-items: center;
     text-align: center;
-    padding: 10px 10px 10px;
+    padding: 5px 25px 5px;
 }
 .closeAboutModalDialog {
     color: #8b5ea9;
@@ -407,6 +438,19 @@ label.error{
     color: rgb(116, 47, 124);
     cursor: pointer;
 }
+/* scroll bar */
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #c1b2e05d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #8b5ea9;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(116, 47, 124);
+  }
 
 /* Footer */
 #footer {
